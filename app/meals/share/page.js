@@ -1,6 +1,7 @@
 import ImagePicker from '@/components/image-picker/image-picker';
 import classes from './page.module.css';
 import { shareMeal } from '@/lib/actions';
+import MealsFormSubmit from '@/components/meals/meals-form-submit';
 // server action은 client 컴포넌트에서는 작동하지 않는다.
 // 따라서 클라이언트 컴포넌트를 쓰고 싶다면 따로 server action을 빼서 임포트 하는 방식으로 사용가능
 export default function ShareMealPage() {
@@ -38,7 +39,7 @@ export default function ShareMealPage() {
           </p>
           <ImagePicker label='your name' name='image' />
           <p className={classes.actions}>
-            <button type='submit'>Share Meal</button>
+            <MealsFormSubmit />
           </p>
         </form>
       </main>
