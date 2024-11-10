@@ -2,9 +2,23 @@ import Image from 'next/image';
 import styles from './page.module.css';
 import { getMeal } from '@/lib/meals';
 import { notFound } from 'next/navigation';
-export default function MealDetailPage({ params }) {
+
+// 동적 메타데이터
+export async function generateMetadata({ params }) {
   const meal = getMeal(params.MealSlug);
 
+  if (!meal) {
+    notFound(); // 가장 가까운 not-found 페이지를 띄운다.
+  }
+
+  return {
+    title: meal.title,
+    description: meal.summary,
+  };
+}
+
+export default function MealDetailPage({ params }) {
+  const meal = getMeal(params.MealSlug);
   if (!meal) {
     notFound(); // 가장 가까운 not-found 페이지를 띄운다.
   }

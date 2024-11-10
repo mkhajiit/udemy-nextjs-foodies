@@ -4,6 +4,11 @@ import MealGrid from '@/components/meals/meals-grid';
 import { getMeals } from '@/lib/meals';
 import { Suspense } from 'react';
 
+// 정적 메타데이터
+export const metadata = {
+  title: '세상의 모든 음식들',
+  description: '커뮤니티 유저들의 의해 공유된 맛있는 다양한 음식들이 소개되어 있습니다',
+};
 async function Meals() {
   const meals = await getMeals();
 
